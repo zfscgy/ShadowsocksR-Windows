@@ -2,15 +2,14 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <TargetFramework>net48</TargetFramework>
     <UseWPF>true</UseWPF>
 	
 	<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <AssemblyName>ShadowsocksR</AssemblyName>
     <RootNamespace>Shadowsocks</RootNamespace>
     <ApplicationIcon>shadowsocks.ico</ApplicationIcon>
-    <StartupObject>Shadowsocks.Program</StartupObject>
-    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <StartupObject></StartupObject>
     <LangVersion>8</LangVersion>
   </PropertyGroup>
 
@@ -79,7 +78,7 @@
 
   <ItemGroup>
     <EmbeddedResource Update="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>

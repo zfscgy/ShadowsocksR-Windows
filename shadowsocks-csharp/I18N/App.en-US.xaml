@@ -38,6 +38,7 @@
     <sys:String x:Key="SameHostForSameAddress">Same host for same address</sys:String>
     <sys:String x:Key="ServerStatistic">Server statistic...</sys:String>
     <sys:String x:Key="DisconnectCurrent">Disconnect current</sys:String>
+    <sys:String x:Key="EnableAllServers">Enable All Servers</sys:String>
 
     <sys:String x:Key="ServersSubscribe">Subscription</sys:String>
     <sys:String x:Key="SubscribeSetting">Setting</sys:String>
@@ -106,6 +107,7 @@
 
     <sys:String x:Key="UpdateSubscribeSuccess">Update subscribe {0} success</sys:String>
     <sys:String x:Key="UpdateSubscribeFailure">Update subscribe {0} failure</sys:String>
+    <sys:String x:Key="SelectServerFail">Select server failed, the server is not enabled.</sys:String>
 
     <sys:String x:Key="QrCodeNotFound">No QRCode found. Try to zoom in or move it to the center of the screen.</sys:String>
 

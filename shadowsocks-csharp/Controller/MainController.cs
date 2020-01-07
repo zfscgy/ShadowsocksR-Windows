@@ -45,6 +45,8 @@ namespace Shadowsocks.Controller
         public event EventHandler ShowConfigFormEvent;
         public event EventHandler ShowSubscribeWindowEvent;
 
+        public event EventHandler SelectServerFailed;
+
         // when user clicked Edit PAC, and PAC file has already created
         public event EventHandler<PathEventArgs> PACFileReadyToOpen;
         public event EventHandler<PathEventArgs> UserRuleFileReadyToOpen;
@@ -179,9 +181,24 @@ namespace Shadowsocks.Controller
         /// </summary>
         public void SelectServerIndex(int index)
         {
+            if (!Global.GuiConfig.Configs[index].Enable)
+            {
+                Logging.Info("Selection failed. Server is not enabled.");
+                Application.Current.Dispatcher.Invoke(() => SelectServerFailed.Invoke(this, new EventArgs()));
+                return;
+            }
             Global.GuiConfig.Index = index;
             SaveAndNotifyChanged();
         }
+
+        public void EnableAllServers()
+        {
+            foreach (Server server in Global.GuiConfig.Configs)
+            {
+                server.Enable = true;
+            }
+        }
+
 
         /// <summary>
         /// 导入服务器链接
@@ -545,6 +562,7 @@ namespace Shadowsocks.Controller
 
         private void UpdateSystemProxy()
         {
+            Logging.Info("System proxy updated.");
             if (Global.GuiConfig.SysProxyMode != ProxyMode.NoModify)
             {
                 SystemProxy.SystemProxy.Update(Global.GuiConfig, false, _pacServer);

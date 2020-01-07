@@ -50,6 +50,7 @@
             <Separator />
             <MenuItem x:Name="ServerStatistic" />
             <MenuItem x:Name="DisconnectCurrent" />
+            <MenuItem x:Name="EnableAllServers"/>
         </MenuItem>
         <MenuItem x:Name="ServersSubscribe">
             <MenuItem x:Name="SubscribeSetting" />

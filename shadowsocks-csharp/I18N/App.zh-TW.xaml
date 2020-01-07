@@ -38,6 +38,7 @@
     <sys:String x:Key="SameHostForSameAddress">優先相同節點連接同一位址</sys:String>
     <sys:String x:Key="ServerStatistic">伺服器連接統計...</sys:String>
     <sys:String x:Key="DisconnectCurrent">斷開當前所有連接</sys:String>
+    <sys:String x:Key="EnableAllServers">啟用所有伺服器</sys:String>
 
     <sys:String x:Key="ServersSubscribe">訂閱</sys:String>
     <sys:String x:Key="SubscribeSetting">設定</sys:String>
@@ -106,6 +107,7 @@
 
     <sys:String x:Key="UpdateSubscribeSuccess">伺服器訂閱 {0} 更新成功</sys:String>
     <sys:String x:Key="UpdateSubscribeFailure">伺服器訂閱 {0} 更新失敗</sys:String>
+    <sys:String x:Key="SelectServerFail">選擇伺服器失敗，该伺服器未啟用</sys:String>
 
     <sys:String x:Key="QrCodeNotFound">未發現 QR 碼，嘗試把它放大或移動到靠近螢幕中間的位置</sys:String>
 

@@ -38,6 +38,7 @@
     <sys:String x:Key="SameHostForSameAddress">同址优先</sys:String>
     <sys:String x:Key="ServerStatistic">连接统计</sys:String>
     <sys:String x:Key="DisconnectCurrent">强制断开连接</sys:String>
+    <sys:String x:Key="EnableAllServers">启用所有服务器</sys:String>
 
     <sys:String x:Key="ServersSubscribe">订阅</sys:String>
     <sys:String x:Key="SubscribeSetting">设置</sys:String>
@@ -106,6 +107,7 @@
 
     <sys:String x:Key="UpdateSubscribeSuccess">服务器订阅 {0} 更新成功</sys:String>
     <sys:String x:Key="UpdateSubscribeFailure">服务器订阅 {0} 更新失败</sys:String>
+    <sys:String x:Key="SelectServerFail">选择服务器失败，该服务器未启用</sys:String>
 
     <sys:String x:Key="QrCodeNotFound">未发现二维码，尝试把它放大或移动到靠近屏幕中间的位置</sys:String>
 

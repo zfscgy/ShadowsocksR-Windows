@@ -95,6 +95,9 @@ namespace Shadowsocks.Controller
             controller.ConfigChanged += controller_ConfigChanged;
             controller.PACFileReadyToOpen += controller_FileReadyToOpen;
             controller.UserRuleFileReadyToOpen += controller_FileReadyToOpen;
+
+            controller.SelectServerFailed += Controller_SelectServerFailed;
+
             controller.Errored += ControllerError;
             controller.UpdatePACFromGFWListCompleted += controller_UpdatePACFromGFWListCompleted;
             controller.UpdatePACFromGFWListError += controller_UpdatePACFromGFWListError;
@@ -126,6 +129,7 @@ namespace Shadowsocks.Controller
             timerDelayCheckUpdate.Elapsed += timer_Elapsed;
             timerDelayCheckUpdate.Start();
         }
+
 
         private void timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
@@ -309,6 +313,7 @@ namespace Shadowsocks.Controller
                             sameHostForSameTargetItem.Click += SelectSameHostForSameTargetItem_Click;
                             ((MenuItem)menuItem.Items[10]).Click += ShowServerLogItem_Click;
                             ((MenuItem)menuItem.Items[11]).Click += DisconnectCurrent_Click;
+                            ((MenuItem)menuItem.Items[12]).Click += EnableAllServers_Click;
                             break;
                         }
                         case @"ServersSubscribe":
@@ -362,6 +367,10 @@ namespace Shadowsocks.Controller
         {
             LoadCurrentConfiguration();
             UpdateTrayIcon();
+        }
+        private void Controller_SelectServerFailed(object sender, EventArgs e)
+        {
+            Task.Run(() => MessageBox.Show(I18NUtil.GetAppStringValue(@"SelectServerFail"), I18NUtil.GetAppStringValue(@"Servers")));
         }
 
         private void controller_FileReadyToOpen(object sender, MainController.PathEventArgs e)
@@ -1241,6 +1250,11 @@ namespace Shadowsocks.Controller
         private void DisconnectCurrent_Click(object sender, RoutedEventArgs e)
         {
             Task.Run(() => { controller.DisconnectAllConnections(); });
+        }
+
+        private void EnableAllServers_Click(object sender, RoutedEventArgs e)
+        {
+            Task.Run(() => controller.EnableAllServers());
         }
 
         public void ImportAddress(string text)
