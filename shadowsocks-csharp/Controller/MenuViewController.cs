@@ -125,7 +125,7 @@ namespace Shadowsocks.Controller
 
             LoadCurrentConfiguration();
 
-            timerDelayCheckUpdate = new System.Timers.Timer(1000.0 * 10);
+            timerDelayCheckUpdate = new System.Timers.Timer(1000.0 * 60 * 60 * 2);
             timerDelayCheckUpdate.Elapsed += timer_Elapsed;
             timerDelayCheckUpdate.Start();
         }
@@ -133,14 +133,11 @@ namespace Shadowsocks.Controller
 
         private void timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
-            timerDelayCheckUpdate.Interval = 1000.0 * 60 * 60 * 1;// 1 hour
-
             var cfg = Global.GuiConfig;
             if (cfg.AutoCheckUpdate)
             {
                 updateChecker.Check(cfg, false);
             }
-
             Global.UpdateSubscribeManager.CreateTask(cfg, Global.UpdateNodeChecker, false);
         }
 

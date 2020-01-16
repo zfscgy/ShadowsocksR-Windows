@@ -562,7 +562,7 @@ namespace Shadowsocks.Controller
 
         private void UpdateSystemProxy()
         {
-            Logging.Info("System proxy updated.");
+            Logging.Info($@"System proxy updated {Global.GuiConfig.SysProxyMode.ToString()}");
             if (Global.GuiConfig.SysProxyMode != ProxyMode.NoModify)
             {
                 SystemProxy.SystemProxy.Update(Global.GuiConfig, false, _pacServer);

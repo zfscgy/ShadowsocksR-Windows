@@ -153,6 +153,13 @@ namespace Shadowsocks.Controller.SystemProxy
             {
                 return false;
             }
+            
+            // Refresh must be put first for me,
+            // Cause I found that the following two wininet functions would change proxy settings in registry to zero
+            if (!NativeMethods.InternetSetOption(IntPtr.Zero, INTERNET_OPTION.INTERNET_OPTION_REFRESH, IntPtr.Zero, 0))
+            {
+                return false;
+            }
 
             if (!NativeMethods.InternetSetOption(IntPtr.Zero, INTERNET_OPTION.INTERNET_OPTION_SETTINGS_CHANGED, IntPtr.Zero, 0))
             {
@@ -164,10 +171,6 @@ namespace Shadowsocks.Controller.SystemProxy
                 return false;
             }
 
-            if (!NativeMethods.InternetSetOption(IntPtr.Zero, INTERNET_OPTION.INTERNET_OPTION_REFRESH, IntPtr.Zero, 0))
-            {
-                return false;
-            }
 
             return true;
         }
